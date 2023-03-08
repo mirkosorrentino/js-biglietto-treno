@@ -11,6 +11,10 @@ console.log(`Il passeggero ha ${passengerAge} anni`);
 // calcolare il prezzo pieno del biglietto
 // SE minore di 18 sconto del 20%, ALTRIMENTI SE maggiore di 65 sconto del 40%, ALTRIMENTI nessuno sconto
 
+if (isNaN(kmToDo)) {
+    console.log ("ricarica la pagina e inserisci solamente dei numeri")
+}
+
 const juniorDiscount = 0.2
 const seniorDiscount = 0.4
 
@@ -32,9 +36,17 @@ console.log (ticketFinalPrice);
 // output
 // prezzo con massimo due cifre decimali
 
-if (ticketFinalPrice % 2 === 0) {
-    document.getElementById("final-price").innerHTML+= ticketFinalPrice;
+if ((isNaN(kmToDo))||(isNaN(passengerAge))) {
+    document.getElementById("final-price").innerHTML+= (`ricarica la pagina e inserisci solamente dei numeri`);
+} else if (ticketFinalPrice % 2 === 0) {
+    document.getElementById("final-price").innerHTML+= (`Il prezzo del tuo biglietto ferroviario è ${ticketFinalPrice}€`);
 } else {
     let ticketRoundedPrice = ticketFinalPrice.toFixed(2)
     document.getElementById("final-price").innerHTML+= ticketRoundedPrice;
+}
+
+if (passengerAge < 18 && (!((isNaN(kmToDo))||(isNaN(passengerAge))))) {
+    document.getElementById("discount").innerHTML+= (`Il prezzo iniziale era di ${ticketFullPrice}€ ma hai ottenuto lo sconto under 18 del 20%`);
+} else if (passengerAge > 65) {
+    document.getElementById("discount").innerHTML+= (`Il prezzo iniziale era di ${ticketFullPrice}€ ma hai ottenuto lo sconto under 65 del 40%`);
 }
