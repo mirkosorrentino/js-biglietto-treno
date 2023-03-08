@@ -47,6 +47,6 @@ if ((isNaN(kmToDo))||(isNaN(passengerAge))) {
 
 if (passengerAge < 18 && (!((isNaN(kmToDo))||(isNaN(passengerAge))))) {
     document.getElementById("discount").innerHTML+= (`Il prezzo iniziale era di ${ticketFullPrice}€ ma hai ottenuto lo sconto under 18 del 20%`);
-} else if (passengerAge > 65) {
+} else if (passengerAge > 65 && (!((isNaN(kmToDo))||(isNaN(passengerAge))))) {
     document.getElementById("discount").innerHTML+= (`Il prezzo iniziale era di ${ticketFullPrice}€ ma hai ottenuto lo sconto under 65 del 40%`);
 }
